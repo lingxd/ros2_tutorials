@@ -13,10 +13,11 @@ public:
             "address_book",
             10,
             [this](const more_interfaces::msg::AddressBook::SharedPtr msg) -> void {
-                std::cout
-                    << "Subscriber Contact First:" << msg->first_name
-                    << "  Last:" << msg->last_name
-                    << std::endl;
+                std::cout << "Subscriber address book:" << std::endl;
+                for (auto contact : msg->address_book)
+                {
+                    std::cout << "First:" << contact.first_name << "  Last:" << contact.last_name << std::endl;
+                }
             });
     }
 
